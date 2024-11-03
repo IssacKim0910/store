@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>공통 헤더</title>
+    <link rel="stylesheet" href="/css/common.css"/>
+</head>
+<body>
+<header id="header" th:fragment="commonHeader"> <!-- fragment 추가 -->
+    <div class="inner">
+        <h1 class="logo"><a th:href="@{/}">테스트</a></h1>
+        <h2></h2>
+        <ul class="gnb">
+            <li><a th:href="@{/category}">카테고리별 매장</a></li>
+            <li><a th:href="@{/local}">지역별 매장</a></li>
+            <li><a th:href="@{/hundred}">100% 매장</a></li>
+            <li><a th:href="@{/register}">입점 신청</a></li>
+            <li><a th:href="@{/recommend}">Pi 상품</a></li>
+            <li><a th:href="@{/sub05_02}">고객센터</a></li>
+        </ul>
+
+        <form name="tfrm" action="/search.html" method="post" class="search">
+            <input type="text" name="searchword">
+            <button type="button" onClick="go_main_search(document.tfrm)">검색</button>
+        </form>
+        <script>
+            function go_main_search(frm) {
+                if (frm.searchword.value == "") {
+                    alert('검색어를 입력해주세요');
+                    frm.searchword.focus();
+                    return;
+                }
+                frm.submit();
+            }
+        </script>
+        <a th:href="@{/login}" class="user">로그인</a>
+        <button type="button" class="mnu">메뉴</button>
+        <a href="https://www.pistore.biz" class="open" target="_blank">파이스토어 글로벌</a>
+        <button type="button" class="sch">검색</button>
+        <a th:href="@{/sub05_01}" class="calc">계산기</a>
+    </div>
+</header>
+</body>
+
+
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://www.pistore.info/sub02.html -->
+<html lang="ko" style="--vh: 9.53px; --vw: 19.2px;">
+<head th:replace="head :: commonHead"></head>
+
+<style>
+    .wrap {
+        position: absolute;
+        left: 0;
+        bottom: 40px;
+        width: 188px;
+        height: 132px;
+        margin-left: -144px;
+        text-align: left;
+        overflow: hidden;
+        font-size: 12px;
+        font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
+        line-height: 1.5;
+    }
+
+    .wrap * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .wrap .info {
+        width: 186px;
+        height: 85px;
+        border-radius: 5px;
+        border-bottom: 2px solid #ccc;
+        border-right: 1px solid #ccc;
+        overflow: hidden;
+        background: #fff;
+    }
+
+    .wrap .info:nth-child(1) {
+        border: 0;
+        box-shadow: 0px 1px 2px #888;
+    }
+
+    .info .title {
+        padding: 5px 0 0 10px;
+        height: 30px;
+        background: #eee;
+        border-bottom: 1px solid #ddd;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    .info .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #888;
+        width: 17px;
+        height: 17px;
+        background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');
+    }
+
+    .info .close:hover {
+        cursor: pointer;
+    }
+
+    .info .body {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .info .desc {
+        position: relative;
+        margin: 13px 0 0 10px;
+        height: 75px;
+    }
+
+    .desc .ellipsis {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .desc .jibun {
+        font-size: 11px;
+        color: #888;
+        margin-top: -2px;
+    }
+
+    .info .img {
+        position: absolute;
+        top: 6px;
+        left: 5px;
+        width: 73px;
+        height: 71px;
+        border: 1px solid #ddd;
+        color: #888;
+        overflow: hidden;
+    }
+
+    .info:after {
+        content: '';
+        position: absolute;
+        margin-left: -12px;
+        left: 50%;
+        bottom: 0;
+        width: 22px;
+        height: 12px;
+        background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
+    }
+
+    .info .link {
+        color: #5085BB;
+    }
+
+    .cls {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        opacity: 0;
+        width: 1px;
+        height: 1px;
+    }
+
+    .tt a {
+        display: inline-block;
+        padding: 5px 2px;
+    }
+
+    @media all and (max-width: 1024px) {
+        #map {
+            height: calc(100vh - 200px) !important;
+        }
+    }
+</style>
+
+<body data-aos-easing="ease" data-aos-duration="1000" data-aos-delay="0">
+<div id="wrap">
+    <script>
+        function go_main_search(frm) {
+            if (frm.searchword.value == "") {
+                alert('검색어를 입력해주세요');
+                frm.searchword.focus();
+                return;
+            }
+            frm.submit();
+        }
+    </script>
+    <header th:replace="~{header :: commonHeader}"></header>
+
+
+    <!--    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?44482acfbd77aee841689f920ab924e5"></script>-->
+
+    <script>
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+            mapOption = {
+                center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };
+
+
+        // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+        var map = new kakao.maps.Map(mapContainer, mapOption);
+    </script>
+    <div id="sub">
+        <div class="inner">
+
+
+            <form name="form1" id="form1" action="https://www.pistore.info/sub02.html" method="post">
+                <ul id="navi">
+                    <li><a href="https://www.pistore.info/sub02.html#">HOME</a></li>
+                    <li class="__p">
+                        <span>지역별 매장</span>
+<!--                        <ul>-->
+<!--                            <li><a href="https://www.pistore.info/sub02.html#">메뉴메뉴1</a></li>-->
+<!--                            <li><a href="https://www.pistore.info/sub02.html#">메뉴메뉴2</a></li>-->
+<!--                            <li><a href="https://www.pistore.info/sub02.html#">메뉴메뉴3</a></li>-->
+<!--                            <li><a href="https://www.pistore.info/sub02.html#">메뉴메뉴4</a></li>-->
+<!--                            <li><a href="https://www.pistore.info/sub02.html#">메뉴메뉴5</a></li>-->
+<!--                        </ul>-->
+                    </li>
+                    <li>
+                        <span>시.도선택</span>
+                        <ul>
+
+                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=28">서울</a></li>
+
+                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=29">강원</a></li>
+
+                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=30">경기</a></li>
+
+                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=31">경남</a></li>
+
+                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=32">경북</a></li>
+
+                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=33">광주</a></li>
+
+                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=34">대구</a></li>
+
+                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=35">대전</a></li>
+
+                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=36">부산</a></li>
+
+                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=37">세종</a></li>
+
+                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=38">울산</a></li>
+
+                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=39">인천</a></li>
+
+                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=40">전남</a></li>
+
+                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=41">전북</a></li>
+
+                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=42">제주</a></li>
+
+                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=43">충남</a></li>
+
+                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=44">충북</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>구선택</span>
+                        <ul>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div id="lr">
+
+                    <div id="snb">
+                        <h2>지역별 매장</h2>
+                        <ul class="snb">
+                            <li>
+                                <select name="CITY" onchange="document.form1.submit();">
+                                    <option value="">시.도선택
+                                    </option>
+                                    <option value="28">서울</option>
+                                    <option value="29">강원</option>
+                                    <option value="30">경기</option>
+                                    <option value="31">경남</option>
+                                    <option value="32">경북</option>
+                                    <option value="33">광주</option>
+                                    <option value="34">대구</option>
+                                    <option value="35">대전</option>
+                                    <option value="36">부산</option>
+                                    <option value="37">세종</option>
+                                    <option value="38">울산</option>
+                                    <option value="39">인천</option>
+                                    <option value="40">전남</option>
+                                    <option value="41">전북</option>
+                                    <option value="42">제주</option>
+                                    <option value="43">충남</option>
+                                    <option value="44">충북</option>
+                                </select>
+                            </li>
+                            <li>
+                                <select name="GU" id="GU">
+                                    <option value="">구선택
+                                    </option>
+                                </select>
+                            </li>
+                        </ul>
+                        <button type="button" onclick="document.form1.submit()" class="btn">조회</button>
+
+
+                    </div>
+
+                    <div id="con">
+                        <div id="map" style="width:100%;height:960px;"></div>
+                        <script type="text/javascript"
+                                src="//dapi.kakao.com/v2/maps/sdk.js?appkey=44482acfbd77aee841689f920ab924e5&libraries=services"></script>
+                        <div style="cursor: auto; position: absolute; z-index: 2; left: 0px; top: 0px;"></div>
+                    </div>
+
+                    <script>
+                        var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+                            mapOption = {
+                                center: new kakao.maps.LatLng('37.56654', '126.97857'), // 지도의 중심좌표
+                                level: 12 // 지도의 확대 레벨
+                            };
+
+                        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+                        // 마커를 표시할 위치와 title 객체 배열입니다
+                        var positions = [
+
+                            {
+                                title: '<span class="tt"><a href="/sub01_01_view.html?NO=1">황기삼겹살</a></span>',
+                                latlng: new kakao.maps.LatLng('35.4977741', '129.425603'),
+                                content: '<div class="wrap"  >' +
+                                    '    <div class="info">' +
+                                    '        <div class="title">' +
+                                    '            황기삼겹살' +
+                                    '            <div class="close"   title="닫기"></div>' +
+                                    '        </div>' +
+                                    '        <div class="body">' +
+                                    '            <div class="desc">' +
+                                    '                <div class="jibun ellipsis">사용방법 : 매장</div>' +
+                                    '                <div><a href="/sub01_01_view.html?NO=1"  class="link">상세보기</a></div>' +
+                                    '            </div>' +
+                                    '        </div>' +
+                                    '    </div>' +
+                                    '</div>'
+                            }
+                            , {
+                                title: '<span class="tt"><a href="/sub01_01_view.html?NO=237">초이스워치</a></span>',
+                                latlng: new kakao.maps.LatLng('37.5219259', '127.037593'),
+                                content: '<div class="wrap"  >' +
+                                    '    <div class="info">' +
+                                    '        <div class="title">' +
+                                    '            초이스워치' +
+                                    '            <div class="close"   title="닫기"></div>' +
+                                    '        </div>' +
+                                    '        <div class="body">' +
+                                    '            <div class="desc">' +
+                                    '                <div class="jibun ellipsis">사용방법 : 매장</div>' +
+                                    '                <div><a href="/sub01_01_view.html?NO=237"  class="link">상세보기</a></div>' +
+                                    '            </div>' +
+                                    '        </div>' +
+                                    '    </div>' +
+                                    '</div>'
+                            }
+                            , {
+                                title: '<span class="tt"><a href="/sub01_01_view.html?NO=302">JY자연치유연구소</a></span>',
+                                latlng: new kakao.maps.LatLng('37.5644043', '127.001575'),
+                                content: '<div class="wrap"  >' +
+                                    '    <div class="info">' +
+                                    '        <div class="title">' +
+                                    '            JY자연치유연구소' +
+                                    '            <div class="close"   title="닫기"></div>' +
+                                    '        </div>' +
+                                    '        <div class="body">' +
+                                    '            <div class="desc">' +
+                                    '                <div class="jibun ellipsis">사용방법 : 매장</div>' +
+                                    '                <div><a href="/sub01_01_view.html?NO=302"  class="link">상세보기</a></div>' +
+                                    '            </div>' +
+                                    '        </div>' +
+                                    '    </div>' +
+                                    '</div>'
+                            }
+
+                        ];
+
+                        // 마커 이미지의 이미지 주소입니다
+                        var imageSrc = "https://www.pistore.info/images/map_icon.png";
+                        // 마커 이미지의 이미지 크기 입니다
+                        var imageSize = new kakao.maps.Size(42, 40);
+
+                        // 마커 이미지를 생성합니다
+                        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+
+
+                        for (let i = 0; i < positions.length; i++) {
+                            var data = positions[i];
+                            displayMarker(data);
+                        }
+
+                        // 지도에 마커를 표시하는 함수입니다
+                        function displayMarker(data) {
+                            var marker = new kakao.maps.Marker({
+                                map: map,
+                                //content : data.content,
+                                image: markerImage, // 마커 이미지
+                                position: data.latlng
+                            });
+                            var overlay = new kakao.maps.CustomOverlay({
+                                yAnchor: 3,
+                                map: map,
+                                //content: data.content,
+                                position: marker.getPosition()
+                            });
+
+                            var content = document.createElement('div');
+                            content.innerHTML = data.title;
+                            content.style.cssText = 'background: white; border: 1px solid black';
+
+
+                            var closeBtn = document.createElement('button');
+                            closeBtn.classList.add('cls');
+                            closeBtn.innerHTML = '닫기';
+                            closeBtn.onclick = function () {
+                                overlay.setMap(null);
+                            };
+                            content.appendChild(closeBtn);
+                            overlay.setContent(content);
+
+                            kakao.maps.event.addListener(marker, 'click', function () {
+                                overlay.setMap(map);
+                                //overlay.setContent(content);
+                            });
+
+
+                        }
+
+
+                        $(document).on("click", '.wrap .close', function () {
+                            $(this).closest('.wrap').next('.cls').trigger('click')
+                        });
+
+                    </script>
+                    <!----지도---->
+
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+
+    <footer th:replace="~{footer :: footerFragment}"></footer> <!-- 푸터 삽입 -->
+
+    <!-- 번역 -->
+
+    <div class="gtranslate_wrapper gt_container-unisv1">
+        <div class="gtranslate_wrapper"></div>
+    </div>
+
+    <script>window.gtranslateSettings = {
+        "default_language": "ko",
+        "native_language_names": true,
+        "detect_browser_language": true,
+        "wrapper_selector": ".gtranslate_wrapper",
+        "flag_size": 16,
+        "horizontal_position": "left",
+        "vertical_position": "bottom",
+        "alt_flags": {"en": "usa", "pt": "brazil", "es": "argentina", "fr": "quebec"}
+    }</script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
+
+    <!-- 번역 -->
+
+    <button type="button" id="gotop"><i class="axi axi-arrow-up"></i></button>
+
+    <footer id="footer" class="comMarb" style="padding-bottom:35px;">Copyright © 2022 파이스토어 All rights reserved.
+        <!--<br class="__m">Design by <a href="http://designcre.com" target="_blank"><img src="/images/foot_logo.png" alt="" /></a> 홈페이지 제작 전문업체--></footer>
+
+    <!--div class="floatBan">
+        <ul>
+            <li><a href="https://www.bitget.com/expressly?channelCode=fgvm&vipCode=n5hd&languageType=0" target="_blank"><img src="/img/foot_banBit.jpg"></a></li>
+            <li><a href="https://www.mexc.kr/ko-KR/register?inviteCode=mexc-1Lah6" target="_blank"><img src="/img/foot_banMexc.jpg"></a></li>
+        </ul>
+    </div-->
+
+
+    <script type="text/javascript" src="./local_files/wcslog.js.다운로드"></script>
+    <script type="text/javascript">
+        // STEP 2. na_account_id(네이버공통키) 세팅
+        if (!wcs_add) var wcs_add = {};
+        wcs_add["wa"] = "s_XXXX"; // wcs_add["wa"]="na_account_id" , 확인된/전달받은 na_account_id(네이버공통키) 세팅
+        //STEP 3. Referrer, 현재 페이지 URL, 사용자 환경 등의 정보를 변수에 세팅 및 전환로그 수집을 위한 Cookie등의 세팅
+        if (!_nasa) var _nasa = {};
+        wcs.inflow("XXX.com");
+        // PC사이트와 모바일사이트의 웹로그 합하여 분석하는 경우 사이트 최상위 도메인 입력. PC와 모바일사이트를 각각 별도로 분석하고 싶은 경우 값을 비워둠.
+        // STEP 4. 변수에 세팅된 각종 정보 + 전환정보를 (네이버의) 웹로그수집서버에 전송. 전송하는 method이므로 항상 STEP 1, 2, 3 보다나중에 있어야 함. (변수 세팅 등이 되지 않은 상황에서 먼저 전송하면 웹로그 수집에 오류가 발생함.)
+        wcs_do(_nasa);
+
+        function copyToClipBoard2() {
+            var content = document.getElementById('wow3');
+            content.select();
+            document.execCommand('copy');
+            alert("복사되었습니다.");
+        }
+
+        function copyToClipBoard3() {
+            var content = document.getElementById('wow4');
+            content.select();
+            document.execCommand('copy');
+            alert("복사되었습니다.");
+        }
+    </script>
+    <form name="foot_frm2" id="foot_frm2">
+        <input class="adree_bot" type="text" name="wow3" id="wow3" value="https://www.pistore.info">
+        <input class="adree_bot" type="text" name="wow4" id="wow4"
+               value="https://play.google.com/store/apps/details?id=com.pistore.android">
+
+    </form>
+
+</body>
+</html>
