@@ -23,15 +23,23 @@ public class HomeController {
         return "local";
     }
 
-    @GetMapping("/hundred")
-    public String hundred() {
-        return "hundred";
-    }
+//    @GetMapping("/hundred")
+//    public String hundred() {
+//        return "hundred";
+//    }
 
     @GetMapping("/register")
     public String register() {
         return "register";
     }
 
+    @GetMapping("/insertPost")
+    public String insertPost() {
+        return "post";
+    }
 
+    @GetMapping("/cs")
+    public String cs() {
+        return "cs";
+    }
 }

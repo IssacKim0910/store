@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head th:replace="~{head :: commonHead}"></head>
+<body>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<style>
+    .image-list img {
+        max-width: 70px;
+        max-height: 70px;
+        object-fit: cover;
+    }
+</style>
+<header th:replace="~{header :: commonHeader}"></header>
+
+<div class="container">
+    <h2>게시글 등록</h2>
+    <div class="panel panel-default">
+
+        <div class="panel-body">
+            <form id="boardForm" enctype="multipart/form-data">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td>제목</td>
+                        <td><input type="text" name="title" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td>카테고리</td>
+                        <td>
+                            <select name="category" class="form-control" required>
+                                <option value="1">PC, 노트북, 게임</option>
+                                <option value="2">가전, 휴대폰</option>
+                                <option value="3">패션, 잡화</option>
+                                <option value="4">피부, 헤어, 미용, 화장품</option>
+                                <option value="5">건설, 인테리어, 부동산</option>
+                                <option value="6">외식업, 카페</option>
+                                <option value="7">자동차 관련</option>
+                                <option value="8">여행, 레저, 도서</option>
+                                <option value="9">숙박</option>
+                                <option value="10">기타</option>
+                                <option value="11">의료 관련</option>
+                                <option value="12">법률 행정 서비스</option>
+                                <option value="13">사주, 운세, 작명, 타로</option>
+                                <option value="14">스포츠, 취미, 건강</option>
+                                <option value="15">식품, 건강식품</option>
+                                <option value="16">사무기기</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>연락처</td>
+                        <td><input type="text" name="contact" class="form-control" placeholder="숫자만 입력하세요" required
+                                   maxlength="13">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>결제 비율</td>
+                        <td>
+                            <input type="number" name="paymentRate" class="form-control" placeholder="100%" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>파일</td>
+                        <td>
+                            <input type="file" id="boardFile" multiple="multiple"
+                                   name="boardFile" accept="image/png, image/jpeg" class="form-control">
+                            <ul class="image-list"></ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>내용</td>
+                        <td><textarea name="contents" rows="7" class="form-control" required></textarea></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" align="center">
+                            <button type="submit" id="submit" class="btn btn-warning">등록</button>
+                            <button type="reset" class="btn btn-danger">초기화</button>
+                            <!--                            <a href="/board?page=1" class="btn btn-warning">목록</a>-->
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+                <input type="hidden" name="privateYn" value="Y">
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    const max_size = 5 * 1024 * 1024;
+    const max_length = 10;
+    $(document).ready(function () {
+
+        const fileInput = $('#boardFile');
+        const imageList = $('.image-list');
+        let uploadedFiles = []; // 업로드용 배열 만들기
+
+
+        imageList.on('click', '.btn-file-delete', function () {
+
+            const imageItem = $(this).closest('li');
+            const imageTitle = imageItem.find('.image-title').text();
+
+            // 배열에서 해당 파일 제거
+            uploadedFiles = uploadedFiles.filter(item => item.name !== imageTitle);
+            /*
+            name !== imageTitle: 이 조건이 true일 경우, 해당 file은 새로운 배열에 포함
+            name이 imageTitle과 다르면 해당 파일은 유지
+            */
+            imageItem.remove(); // 이미지 항목 제거
+
+
+        });
+
+        fileInput.on('change', function () {
+            const files = this.files;
+
+            console.log(files);
+            if (!validateFiles(files)) {
+                return false;
+            }
+
+            for (let i = 0; i < files.length; i++) {
+                let file = files[i];
+
+                if (uploadedFiles.length >= max_length) {
+                    alert('파일 등록은 10개까지만 가능합니다.');
+                    break;
+                } else {
+                    uploadedFiles.push(file);
+                }
+
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    const fileName = file.name;
+                    // console.log(fileName, 'filename');
+                    // console.log(e.target.result, 'ck');
+                    const imageItem = $('<li>').addClass('image-item');
+                    const itemLength = $('#boardForm .image-item').length;
+                    if (itemLength + 1 > max_length) {
+                        alert('파일은 10개까지만 등록가능합니다');
+                        return false;
+                    }
+
+                    let html = '';
+                    html += '<span class="image-title">' + fileName + '</span>';
+                    html += '<button type="button" class="btn-file-delete">제거</button>';
+                    html += '<img src="' + reader.result + '" />';
+
+                    imageItem.html(html);
+                    imageList.append(imageItem);
+                };
+
+                reader.readAsDataURL(file);
+            }
+            fileInput.val('');
+        });
+
+
+        // 파일 검사
+        function validateFiles(files) {
+            let valid = true;
+
+            if (files.length > 10) {
+                alert("파일은 최대 10개까지 업로드할 수 있습니다.");
+                fileInput.val('');
+                valid = false;
+            }
+
+            $.each(files, function (index, file) {
+                const fileType = file.type;
+
+                if (fileType !== 'image/png' && fileType !== 'image/jpeg') {
+                    alert("PNG 및 JPG 파일만 업로드할 수 있습니다.");
+                    valid = false;
+                    fileInput.val('');
+                    return false;
+                } else if (file.size > max_size) {
+                    alert('5MB 이하의 파일만 등록 가능합니다.');
+                    valid = false;
+                    fileInput.val('');
+                    return false;
+                }
+            });
+
+            return valid;
+        }
+
+        $('#boardForm').on('submit', function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+
+            if (uploadedFiles.length > max_length) {
+                alert("파일은 최대 10개까지 업로드할 수 있습니다.");
+                return false;
+            }
+            uploadedFiles.forEach(function (file) {
+                formData.append('boardFile', file);
+
+            });
+
+            $.ajax({
+                type: 'POST',
+                enctype: 'multipart/form-data',
+                url: '/board/insert',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (result) {
+                    alert("등록되었습니다.");
+                    window.location.href = "/board?page=1";
+                },
+                error: function (e) {
+                    const response = e.responseJSON;
+                    console.log(response);
+                    console.log(response.fieldErrors.title);
+                    alert(response.fieldErrors.title || response.fieldErrors.contents);
+                }
+            });
+        });
+
+
+    });
+</script>
+
+</body>
+</html>

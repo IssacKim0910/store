@@ -13,15 +13,15 @@
         <ul class="gnb">
             <li><a th:href="@{/category}">카테고리별 매장</a></li>
             <li><a th:href="@{/local}">지역별 매장</a></li>
-            <li><a th:href="@{/hundred}">100% 매장</a></li>
+<!--            <li><a th:href="@{/hundred}">100% 매장</a></li>-->
             <li><a th:href="@{/register}">입점 신청</a></li>
-            <li><a th:href="@{/recommend}">Pi 상품</a></li>
-            <li><a th:href="@{/sub05_02}">고객센터</a></li>
+<!--            <li><a th:href="@{/recommend}">Pi 상품</a></li>-->
+            <li><a th:href="@{/cs}">고객센터</a></li>
         </ul>
 
-        <form name="tfrm" action="/search.html" method="post" class="search">
+        <form name="tfrm" method="post" class="search">
             <input type="text" name="searchword">
-            <button type="button" onClick="go_main_search(document.tfrm)">검색</button>
+            <button type="button" onClick="">검색</button>
         </form>
         <script>
             function go_main_search(frm) {

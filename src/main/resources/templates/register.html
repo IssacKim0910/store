@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0038)https://www.pistore.info/sub04_03.html -->
 <html lang="ko" style="--vh: 9.53px; --vw: 19.2px;" class="snbFix snbFix2">
-<head th:replace="head :: commonHead"><title>pistore</title></head>
+<head th:replace="~{head :: commonHead}"></head>
 <body data-aos-easing="ease" data-aos-duration="1000" data-aos-delay="0">
 <div id="wrap">
 
@@ -364,7 +364,7 @@
 <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
 <!-- 번역 -->
 
-<button type="button" id="gotop" class="show"><i class="axi axi-arrow-up"></i></button>
+<button type="button" id="gotop" class="show"><i class="axi axi-arrow-up">상단</i></button>
 
 <footer id="footer" class="comMarb" style="padding-bottom:35px;">Copyright © 2022 파이스토어 All rights reserved.
     <!--<br class="__m">Design by <a href="http://designcre.com" target="_blank"><img src="/images/foot_logo.png" alt="" /></a> 홈페이지 제작 전문업체--></footer>
@@ -377,31 +377,31 @@
 </div-->
 
 
-<script type="text/javascript" src="./register_files/wcslog.js.다운로드"></script>
+<!--<script type="text/javascript" src="./register_files/wcslog.js.다운로드"></script>-->
 <script type="text/javascript">
-    // STEP 2. na_account_id(네이버공통키) 세팅
-    if (!wcs_add) var wcs_add = {};
-    wcs_add["wa"] = "s_XXXX"; // wcs_add["wa"]="na_account_id" , 확인된/전달받은 na_account_id(네이버공통키) 세팅
-    //STEP 3. Referrer, 현재 페이지 URL, 사용자 환경 등의 정보를 변수에 세팅 및 전환로그 수집을 위한 Cookie등의 세팅
-    if (!_nasa) var _nasa = {};
-    wcs.inflow("XXX.com");
-    // PC사이트와 모바일사이트의 웹로그 합하여 분석하는 경우 사이트 최상위 도메인 입력. PC와 모바일사이트를 각각 별도로 분석하고 싶은 경우 값을 비워둠.
-    // STEP 4. 변수에 세팅된 각종 정보 + 전환정보를 (네이버의) 웹로그수집서버에 전송. 전송하는 method이므로 항상 STEP 1, 2, 3 보다나중에 있어야 함. (변수 세팅 등이 되지 않은 상황에서 먼저 전송하면 웹로그 수집에 오류가 발생함.)
-    wcs_do(_nasa);
+    // // STEP 2. na_account_id(네이버공통키) 세팅
+    // if (!wcs_add) var wcs_add = {};
+    // wcs_add["wa"] = "s_XXXX"; // wcs_add["wa"]="na_account_id" , 확인된/전달받은 na_account_id(네이버공통키) 세팅
+    // //STEP 3. Referrer, 현재 페이지 URL, 사용자 환경 등의 정보를 변수에 세팅 및 전환로그 수집을 위한 Cookie등의 세팅
+    // if (!_nasa) var _nasa = {};
+    // wcs.inflow("XXX.com");
+    // // PC사이트와 모바일사이트의 웹로그 합하여 분석하는 경우 사이트 최상위 도메인 입력. PC와 모바일사이트를 각각 별도로 분석하고 싶은 경우 값을 비워둠.
+    // // STEP 4. 변수에 세팅된 각종 정보 + 전환정보를 (네이버의) 웹로그수집서버에 전송. 전송하는 method이므로 항상 STEP 1, 2, 3 보다나중에 있어야 함. (변수 세팅 등이 되지 않은 상황에서 먼저 전송하면 웹로그 수집에 오류가 발생함.)
+    // wcs_do(_nasa);
 
-    function copyToClipBoard2() {
-        var content = document.getElementById('wow3');
-        content.select();
-        document.execCommand('copy');
-        alert("복사되었습니다.");
-    }
-
-    function copyToClipBoard3() {
-        var content = document.getElementById('wow4');
-        content.select();
-        document.execCommand('copy');
-        alert("복사되었습니다.");
-    }
+    // function copyToClipBoard2() {
+    //     var content = document.getElementById('wow3');
+    //     content.select();
+    //     document.execCommand('copy');
+    //     alert("복사되었습니다.");
+    // }
+    //
+    // function copyToClipBoard3() {
+    //     var content = document.getElementById('wow4');
+    //     content.select();
+    //     document.execCommand('copy');
+    //     alert("복사되었습니다.");
+    // }
 </script>
 <form name="foot_frm2" id="foot_frm2">
     <input class="adree_bot" type="text" name="wow3" id="wow3" value="https://www.pistore.info">

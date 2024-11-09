@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0033)https://www.pistore.info/100.html -->
 <html lang="ko" style="--vh: 9.53px; --vw: 19.2px;" class="">
-<head th:replace="head :: commonHead"></head>
+<head th:replace="~{head :: commonHead}"></head>
 
 
 <body data-aos-easing="ease" data-aos-duration="1000" data-aos-delay="0">
@@ -107,7 +107,7 @@
                             <div class="in">
                                 <div class="img"><a
                                         href="https://www.pistore.info/sub01_01_view.html?NO=6&amp;B_CATE=281"><i
-                                        style="background-image:url(/NEW_MASTER/goods/Download/pis_20230306140309.png);"></i></a>
+                                        style="background-image:url(/);"></i></a>
                                 </div>
                                 <div class="info">
                                     <div class="ddakji"><span class="__ico blueLine">매장사용</span></div>
@@ -277,29 +277,29 @@
 
 
         <script type="text/javascript">
-            // STEP 2. na_account_id(네이버공통키) 세팅
-            if (!wcs_add) var wcs_add = {};
-            wcs_add["wa"] = "s_XXXX"; // wcs_add["wa"]="na_account_id" , 확인된/전달받은 na_account_id(네이버공통키) 세팅
-            //STEP 3. Referrer, 현재 페이지 URL, 사용자 환경 등의 정보를 변수에 세팅 및 전환로그 수집을 위한 Cookie등의 세팅
-            if (!_nasa) var _nasa = {};
-            wcs.inflow("XXX.com");
-            // PC사이트와 모바일사이트의 웹로그 합하여 분석하는 경우 사이트 최상위 도메인 입력. PC와 모바일사이트를 각각 별도로 분석하고 싶은 경우 값을 비워둠.
-            // STEP 4. 변수에 세팅된 각종 정보 + 전환정보를 (네이버의) 웹로그수집서버에 전송. 전송하는 method이므로 항상 STEP 1, 2, 3 보다나중에 있어야 함. (변수 세팅 등이 되지 않은 상황에서 먼저 전송하면 웹로그 수집에 오류가 발생함.)
-            wcs_do(_nasa);
+            // // STEP 2. na_account_id(네이버공통키) 세팅
+            // if (!wcs_add) var wcs_add = {};
+            // wcs_add["wa"] = "s_XXXX"; // wcs_add["wa"]="na_account_id" , 확인된/전달받은 na_account_id(네이버공통키) 세팅
+            // //STEP 3. Referrer, 현재 페이지 URL, 사용자 환경 등의 정보를 변수에 세팅 및 전환로그 수집을 위한 Cookie등의 세팅
+            // if (!_nasa) var _nasa = {};
+            // wcs.inflow("XXX.com");
+            // // PC사이트와 모바일사이트의 웹로그 합하여 분석하는 경우 사이트 최상위 도메인 입력. PC와 모바일사이트를 각각 별도로 분석하고 싶은 경우 값을 비워둠.
+            // // STEP 4. 변수에 세팅된 각종 정보 + 전환정보를 (네이버의) 웹로그수집서버에 전송. 전송하는 method이므로 항상 STEP 1, 2, 3 보다나중에 있어야 함. (변수 세팅 등이 되지 않은 상황에서 먼저 전송하면 웹로그 수집에 오류가 발생함.)
+            // wcs_do(_nasa);
 
-            function copyToClipBoard2() {
-                var content = document.getElementById('wow3');
-                content.select();
-                document.execCommand('copy');
-                alert("복사되었습니다.");
-            }
-
-            function copyToClipBoard3() {
-                var content = document.getElementById('wow4');
-                content.select();
-                document.execCommand('copy');
-                alert("복사되었습니다.");
-            }
+            // function copyToClipBoard2() {
+            //     var content = document.getElementById('wow3');
+            //     content.select();
+            //     document.execCommand('copy');
+            //     alert("복사되었습니다.");
+            // }
+            //
+            // function copyToClipBoard3() {
+            //     var content = document.getElementById('wow4');
+            //     content.select();
+            //     document.execCommand('copy');
+            //     alert("복사되었습니다.");
+            // }
         </script>
 
     </strong>

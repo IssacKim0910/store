@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0035)https://www.pistore.info/sub02.html -->
 <html lang="ko" style="--vh: 9.53px; --vw: 19.2px;">
-<head th:replace="head :: commonHead"></head>
+<head th:replace="~{head :: commonHead}"></head>
 
 <style>
     .wrap {
@@ -148,71 +148,53 @@
 
     <!--    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?44482acfbd77aee841689f920ab924e5"></script>-->
 
-    <script>
-        var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-            mapOption = {
-                center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-                level: 3 // 지도의 확대 레벨
-            };
+    <!--    <script>-->
+    <!--        var mapContainer = document.getElementById('map'), // 지도를 표시할 div-->
+    <!--            mapOption = {-->
+    <!--                center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표-->
+    <!--                level: 3 // 지도의 확대 레벨-->
+    <!--            };-->
 
-
-        // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-        var map = new kakao.maps.Map(mapContainer, mapOption);
-    </script>
+    <!--        // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다-->
+    <!--        var map = new kakao.maps.Map(mapContainer, mapOption);-->
+    <!--    </script>-->
     <div id="sub">
         <div class="inner">
 
 
-            <form name="form1" id="form1" action="https://www.pistore.info/sub02.html" method="post">
+            <form name="form1" id="form1" method="post">
                 <ul id="navi">
-                    <li><a href="https://www.pistore.info/sub02.html#">HOME</a></li>
+                    <li><a href="#">HOME</a></li>
                     <li class="__p">
                         <span>지역별 매장</span>
-<!--                        <ul>-->
-<!--                            <li><a href="https://www.pistore.info/sub02.html#">메뉴메뉴1</a></li>-->
-<!--                            <li><a href="https://www.pistore.info/sub02.html#">메뉴메뉴2</a></li>-->
-<!--                            <li><a href="https://www.pistore.info/sub02.html#">메뉴메뉴3</a></li>-->
-<!--                            <li><a href="https://www.pistore.info/sub02.html#">메뉴메뉴4</a></li>-->
-<!--                            <li><a href="https://www.pistore.info/sub02.html#">메뉴메뉴5</a></li>-->
-<!--                        </ul>-->
+                        <!--                        <ul>-->
+                        <!--                            <li><a href="https://www.pistore.info/sub02.html#">메뉴메뉴1</a></li>-->
+                        <!--                            <li><a href="https://www.pistore.info/sub02.html#">메뉴메뉴2</a></li>-->
+                        <!--                            <li><a href="https://www.pistore.info/sub02.html#">메뉴메뉴3</a></li>-->
+                        <!--                            <li><a href="https://www.pistore.info/sub02.html#">메뉴메뉴4</a></li>-->
+                        <!--                            <li><a href="https://www.pistore.info/sub02.html#">메뉴메뉴5</a></li>-->
+                        <!--                        </ul>-->
                     </li>
                     <li>
                         <span>시.도선택</span>
                         <ul>
-
-                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=28">서울</a></li>
-
-                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=29">강원</a></li>
-
-                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=30">경기</a></li>
-
-                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=31">경남</a></li>
-
-                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=32">경북</a></li>
-
-                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=33">광주</a></li>
-
-                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=34">대구</a></li>
-
-                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=35">대전</a></li>
-
-                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=36">부산</a></li>
-
-                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=37">세종</a></li>
-
-                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=38">울산</a></li>
-
-                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=39">인천</a></li>
-
-                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=40">전남</a></li>
-
-                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=41">전북</a></li>
-
-                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=42">제주</a></li>
-
-                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=43">충남</a></li>
-
-                            <li class="hReset"><a href="https://www.pistore.info/sub02.html?CITY=44">충북</a></li>
+                            <li class="hReset"><a href="#">서울</a></li>
+                            <li class="hReset"><a href="#">강원</a></li>
+                            <li class="hReset"><a href="#">경기</a></li>
+                            <li class="hReset"><a href="#">경남</a></li>
+                            <li class="hReset"><a href="#">경북</a></li>
+                            <li class="hReset"><a href="#">광주</a></li>
+                            <li class="hReset"><a href="#">대구</a></li>
+                            <li class="hReset"><a href="#">대전</a></li>
+                            <li class="hReset"><a href="#">부산</a></li>
+                            <li class="hReset"><a href="#">세종</a></li>
+                            <li class="hReset"><a href="#">울산</a></li>
+                            <li class="hReset"><a href="#">인천</a></li>
+                            <li class="hReset"><a href="#">전남</a></li>
+                            <li class="hReset"><a href="#">전북</a></li>
+                            <li class="hReset"><a href="#">제주</a></li>
+                            <li class="hReset"><a href="#">충남</a></li>
+                            <li class="hReset"><a href="#">충북</a></li>
                         </ul>
                     </li>
                     <li>
@@ -228,7 +210,7 @@
                         <h2>지역별 매장</h2>
                         <ul class="snb">
                             <li>
-                                <select name="CITY" onchange="document.form1.submit();">
+                                <select name="CITY" onchange="">
                                     <option value="">시.도선택
                                     </option>
                                     <option value="28">서울</option>
@@ -257,7 +239,7 @@
                                 </select>
                             </li>
                         </ul>
-                        <button type="button" onclick="document.form1.submit()" class="btn">조회</button>
+                        <button type="button" onclick="" class="btn">조회</button>
 
 
                     </div>
@@ -386,9 +368,7 @@
                                 //overlay.setContent(content);
                             });
 
-
                         }
-
 
                         $(document).on("click", '.wrap .close', function () {
                             $(this).closest('.wrap').next('.cls').trigger('click')
@@ -396,10 +376,7 @@
 
                     </script>
                     <!----지도---->
-
-
                 </div>
-
 
             </form>
 
@@ -444,38 +421,37 @@
     </div-->
 
 
-    <script type="text/javascript" src="./local_files/wcslog.js.다운로드"></script>
+<!--    <script type="text/javascript" src="./local_files/wcslog.js.다운로드"></script>-->
     <script type="text/javascript">
         // STEP 2. na_account_id(네이버공통키) 세팅
-        if (!wcs_add) var wcs_add = {};
-        wcs_add["wa"] = "s_XXXX"; // wcs_add["wa"]="na_account_id" , 확인된/전달받은 na_account_id(네이버공통키) 세팅
-        //STEP 3. Referrer, 현재 페이지 URL, 사용자 환경 등의 정보를 변수에 세팅 및 전환로그 수집을 위한 Cookie등의 세팅
-        if (!_nasa) var _nasa = {};
-        wcs.inflow("XXX.com");
-        // PC사이트와 모바일사이트의 웹로그 합하여 분석하는 경우 사이트 최상위 도메인 입력. PC와 모바일사이트를 각각 별도로 분석하고 싶은 경우 값을 비워둠.
-        // STEP 4. 변수에 세팅된 각종 정보 + 전환정보를 (네이버의) 웹로그수집서버에 전송. 전송하는 method이므로 항상 STEP 1, 2, 3 보다나중에 있어야 함. (변수 세팅 등이 되지 않은 상황에서 먼저 전송하면 웹로그 수집에 오류가 발생함.)
-        wcs_do(_nasa);
+        // if (!wcs_add) var wcs_add = {};
+        // wcs_add["wa"] = "s_XXXX"; // wcs_add["wa"]="na_account_id" , 확인된/전달받은 na_account_id(네이버공통키) 세팅
+        // //STEP 3. Referrer, 현재 페이지 URL, 사용자 환경 등의 정보를 변수에 세팅 및 전환로그 수집을 위한 Cookie등의 세팅
+        // if (!_nasa) var _nasa = {};
+        // wcs.inflow("XXX.com");
+        // // PC사이트와 모바일사이트의 웹로그 합하여 분석하는 경우 사이트 최상위 도메인 입력. PC와 모바일사이트를 각각 별도로 분석하고 싶은 경우 값을 비워둠.
+        // // STEP 4. 변수에 세팅된 각종 정보 + 전환정보를 (네이버의) 웹로그수집서버에 전송. 전송하는 method이므로 항상 STEP 1, 2, 3 보다나중에 있어야 함. (변수 세팅 등이 되지 않은 상황에서 먼저 전송하면 웹로그 수집에 오류가 발생함.)
+        // wcs_do(_nasa);
 
-        function copyToClipBoard2() {
-            var content = document.getElementById('wow3');
-            content.select();
-            document.execCommand('copy');
-            alert("복사되었습니다.");
-        }
-
-        function copyToClipBoard3() {
-            var content = document.getElementById('wow4');
-            content.select();
-            document.execCommand('copy');
-            alert("복사되었습니다.");
-        }
+        // function copyToClipBoard2() {
+        //     var content = document.getElementById('wow3');
+        //     content.select();
+        //     document.execCommand('copy');
+        //     alert("복사되었습니다.");
+        // }
+        //
+        // function copyToClipBoard3() {
+        //     var content = document.getElementById('wow4');
+        //     content.select();
+        //     document.execCommand('copy');
+        //     alert("복사되었습니다.");
+        // }
     </script>
     <form name="foot_frm2" id="foot_frm2">
         <input class="adree_bot" type="text" name="wow3" id="wow3" value="https://www.pistore.info">
         <input class="adree_bot" type="text" name="wow4" id="wow4"
                value="https://play.google.com/store/apps/details?id=com.pistore.android">
-
     </form>
-
+</div>
 </body>
 </html>
