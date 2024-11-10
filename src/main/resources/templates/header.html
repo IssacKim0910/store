@@ -10,6 +10,8 @@
     <div class="inner">
         <h1 class="logo"><a th:href="@{/}">테스트</a></h1>
         <h2></h2>
+        <p th:text="${session.role}"></p>
+
         <ul class="gnb">
             <li><a th:href="@{/category}">카테고리별 매장</a></li>
             <li><a th:href="@{/local}">지역별 매장</a></li>
@@ -17,6 +19,8 @@
             <li><a th:href="@{/register}">입점 신청</a></li>
 <!--            <li><a th:href="@{/recommend}">Pi 상품</a></li>-->
             <li><a th:href="@{/cs}">고객센터</a></li>
+            <li><a th:href="@{/insertPost}" th:if="${session.role == 'ADMIN'}">글작성</a></li> <!-- ADMIN 권한일 때만 표시 -->
+
         </ul>
 
         <form name="tfrm" method="post" class="search">

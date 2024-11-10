@@ -3,7 +3,6 @@
 <mapper namespace="post">
 
 <insert id="insertPost">
-    INSERT INTO POST(Post_title, location, )
 </insert>
 
 </mapper>
