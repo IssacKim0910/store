@@ -24,7 +24,7 @@
                     <tbody>
                     <tr>
                         <td>제목</td>
-                        <td><input type="text" name="title" class="form-control" required></td>
+                        <td><input type="text" name="postTitle" class="form-control" required></td>
                     </tr>
                     <tr>
                         <td>카테고리</td>
@@ -51,9 +51,8 @@
                     </tr>
                     <tr>
                         <td>연락처</td>
-                        <td><input type="text" name="contact" class="form-control" placeholder="숫자만 입력하세요" required
-                                   maxlength="13">
-                        </td>
+                        <td><input type="text" name="phoneNumber" class="form-control" placeholder="숫자만 입력하세요" required
+                                   maxlength="13"></td>
                     </tr>
                     <tr>
                         <td>결제 비율</td>
@@ -64,14 +63,14 @@
                     <tr>
                         <td>파일</td>
                         <td>
-                            <input type="file" id="boardFile" multiple="multiple"
-                                   name="boardFile" accept="image/png, image/jpeg" class="form-control">
+                            <input type="file" id="boardFile" multiple="multiple" name="postFile"
+                                   accept="image/png, image/jpeg" class="form-control">
                             <ul class="image-list"></ul>
                         </td>
                     </tr>
                     <tr>
                         <td>내용</td>
-                        <td><textarea name="contents" rows="7" class="form-control" required></textarea></td>
+                        <td><textarea name="postDescription" rows="7" class="form-control" required></textarea></td>
                     </tr>
 
                     <tr>
@@ -88,6 +87,7 @@
                 <input type="hidden" name="privateYn" value="Y">
             </form>
         </div>
+
     </div>
 </div>
 
@@ -115,7 +115,7 @@
             name이 imageTitle과 다르면 해당 파일은 유지
             */
             imageItem.remove(); // 이미지 항목 제거
-
+            console.log(uploadedFiles, '현재 배열');
 
         });
 
@@ -166,7 +166,7 @@
 
 
         // 파일 검사
-        function validateFiles(files) {
+        const validateFiles = (files) => {
             let valid = true;
 
             if (files.length > 10) {
@@ -175,7 +175,7 @@
                 valid = false;
             }
 
-            $.each(files, function (index, file) {
+            $.each(files, (index, file) => {
                 const fileType = file.type;
 
                 if (fileType !== 'image/png' && fileType !== 'image/jpeg') {
@@ -197,35 +197,39 @@
         $('#boardForm').on('submit', function (event) {
             event.preventDefault();
 
-            const formData = new FormData(this);
 
+            const formData = new FormData(this);
             if (uploadedFiles.length > max_length) {
                 alert("파일은 최대 10개까지 업로드할 수 있습니다.");
                 return false;
             }
-            uploadedFiles.forEach(function (file) {
-                formData.append('boardFile', file);
-
+            // uploadedFiles.forEach((file) => {
+            //     formData.append('postFile', file);
+            // });
+            uploadedFiles.forEach((file) => {
+                if (file && file.size > 0) {  // 빈 파일이 아니고 size가 0이 아닌 경우에만 추가
+                    formData.append('postFile', file);
+                }
             });
+            for (let [key, value] of formData.entries()) {
+                console.log(key + ": " + value);
+            }
 
             $.ajax({
                 type: 'POST',
-                enctype: 'multipart/form-data',
-                url: '/board/insert',
+                url: '/insertPost',
                 data: formData,
                 contentType: false,
                 processData: false,
-                success: function (result) {
+                success: function () {
                     alert("등록되었습니다.");
-                    window.location.href = "/board?page=1";
                 },
                 error: function (e) {
-                    const response = e.responseJSON;
-                    console.log(response);
-                    console.log(response.fieldErrors.title);
-                    alert(response.fieldErrors.title || response.fieldErrors.contents);
+                    alert("오류 발생: " + e.message);
                 }
             });
+
+
         });
 
 

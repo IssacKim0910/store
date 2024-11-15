@@ -2,7 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="post">
 
-<insert id="insertPost">
-</insert>
+    <insert id="insertPost" parameterType="test.store.dto.Post.PostDTO" useGeneratedKeys="true"
+            keyProperty="postId">
+        INSERT INTO post (post_title, post_description, location, hash_tags, address, phone_number, price, payment_rate)
+        VALUES (#{postTitle}, #{postDescription}, #{location}, #{hashTags}, #{address}, #{phoneNumber}, #{price},
+                #{paymentRate})
+    </insert>
 
+    <insert id="saveFile" parameterType="test.store.dto.Post.PostFileDTO">
+        INSERT INTO postfile (post_id, file_uuid, file_path)
+        VALUES (#{postId}, #{fileUuid}, #{filePath});
+    </insert>
 </mapper>
